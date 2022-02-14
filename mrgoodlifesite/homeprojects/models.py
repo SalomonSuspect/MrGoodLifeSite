@@ -10,6 +10,7 @@ class Task(models.Model):
     priority = models.IntegerField(default=0)
     due_date = models.DateTimeField(blank=True)
     cadence = models.DurationField(blank=True)
+    active = models.BooleanField(default=True)
     # tool foreign key to Tool
     # journal foreign key to JournalEntry
 
