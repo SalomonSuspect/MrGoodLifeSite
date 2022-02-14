@@ -1,2 +1,4 @@
 # MrGoodLifeSite
-Website for all things Mr. Goodlife
+Website for all things Mr. Goodlife:
+   * Home Projects
+
