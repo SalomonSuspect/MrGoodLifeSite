@@ -6,7 +6,6 @@ class StepInLine(admin.TabularInline):
     model = Step
     extra = 3
 
-
 class ToolInLine(admin.TabularInline):
     model = Tool
     extra = 3
