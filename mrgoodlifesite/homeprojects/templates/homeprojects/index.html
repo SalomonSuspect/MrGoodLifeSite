@@ -1,0 +1,7 @@
+<H1>Prioritized List</H1>
+<ol>
+    {% for task in prioritized_list %}
+        <li><a href="homeprojects/{{ task.id }}/">{{task.name}}</a></li>
+    {% endfor %}
+</ol>
+
