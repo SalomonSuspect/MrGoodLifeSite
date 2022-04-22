@@ -2,13 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Task
 from django.template import loader
+from django.views import generic
 
 
-def index(request):
-    tasks = Task.objects.order_by("priority")
-    template = loader.get_template('homeprojects/index.html')
-    context = {
-        'prioritized_list': tasks
-    }
-    return HttpResponse(template.render(context, request))
+class IndexView(generic.ListView):
+    template_name = 'homeprojects/index.html'
+    context_object_name = "prioritized_list"
+
+    def get_queryset(self):
+        return Task.objects.order_by("priority")
+
+
 
