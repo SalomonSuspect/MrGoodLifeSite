@@ -1,16 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
 <style>
 table, th, td {
   border:1px solid black;
 }
 </style>
 <H1>Prioritized List</H1>
-<table style="width:90%">
+<table>
+    <tr>
+        <th>Task Name</th>
+        <th>Priority</th>
+        <th>Due Date</th>
+
+    </tr>
+    {% for task in prioritized_list %}
+       <tr>
+           <td><a href="homeprojects/{{ task.id }}/">{{task.name}}</a></td>
+           <td>{{task.priority}}</td>
+           {% if task.due_date %}
+              <td>{{task.due_date|date:"M, d, Y"}}</td>
+           {% else%}
+              <td>None</td>
+           {% endif %}
+       </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<H1>Due Date List</H1>
+<table>
     <tr>
         <th>Task Name</th>
         <th>Due Date</th>
         <th>Priority</th>
     </tr>
-    {% for task in prioritized_list %}
+    {% for task in due_date_list %}
        <tr>
            <td><a href="homeprojects/{{ task.id }}/">{{task.name}}</a></td>
            {% if task.due_date %}

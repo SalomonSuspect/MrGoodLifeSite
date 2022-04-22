@@ -13,12 +13,14 @@ For example a timedelta of 22 days, 3 hours, 44 minutes and 1 second would be 22
  * Basic CI to validate
 
 ## TO DO
+[ ]- Add form to detailed page that will add a journal entry and mark task complete/reschedule on cadence
+
 [ ] - Identify flow when task with cadence is complete 
 
-[ ] - Need to make sure that if cadence is entered due date is entered 
+[ ] - Need to make sure that if cadence is entered due date is entered
 
-[ ] - Add sorted list by priority 
-
-[ ] - Add sorted list by due date
+[] - Add sorted list by due date
 
 [ ] - Add duration/time estimate to tasks
+
+[X] - Add sorted list by priority - Done via HTML right now 

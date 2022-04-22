@@ -5,12 +5,22 @@ from django.template import loader
 from django.views import generic
 
 
-class IndexView(generic.ListView):
-    template_name = 'homeprojects/index.html'
-    context_object_name = "prioritized_list"
+def index(request):
+    """
+    Using function instead of generic ListView so we can have multiple lists (priority and due date)
+    """
+    prority_tasks = Task.objects.order_by("priority")
+    due_date_tasks = Task.objects.order_by('due_date')
+    template = loader.get_template('homeprojects/index.html')
+    context = {
+        'prioritized_list': prority_tasks,
+        'due_date_list': due_date_tasks
+    }
+    return HttpResponse(template.render(context, request))
 
-    def get_queryset(self):
-        return Task.objects.order_by("priority")
-
-
-
+class DetailView(generic.DetailView):
+    """
+    View to display the details of a TAsk
+    """
+    template_name = 'homeprojects/details.html'
+    model = Task
