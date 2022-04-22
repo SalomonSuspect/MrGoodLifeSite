@@ -1,7 +1,25 @@
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
 <H1>Prioritized List</H1>
-<ol>
+<table style="width:90%">
+    <tr>
+        <th>Task Name</th>
+        <th>Due Date</th>
+        <th>Priority</th>
+    </tr>
     {% for task in prioritized_list %}
-        <li><a href="homeprojects/{{ task.id }}/">{{task.name}}</a></li>
-    {% endfor %}
-</ol>
+       <tr>
+           <td><a href="homeprojects/{{ task.id }}/">{{task.name}}</a></td>
+           {% if task.due_date %}
+              <td>{{task.due_date|date:"M, d, Y"}}</td>
+           {% else%}
+              <td>None</td>
+           {% endif %}
 
+           <td>{{task.priority}}</td>
+       </tr>
+    {% endfor %}
+</table>

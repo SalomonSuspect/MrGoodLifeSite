@@ -8,7 +8,7 @@ class Task(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=1000, blank=True)
     priority = models.IntegerField(default=0)
-    due_date = models.DateTimeField(blank=True, null=True)
+    due_date = models.DateField(blank=True, null=True)
     cadence = models.DurationField(blank=True, null=True)
     active = models.BooleanField(default=True)
     # steps foriegn key to Step
